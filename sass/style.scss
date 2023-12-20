@@ -1,0 +1,191 @@
+@import "reset";
+@import "variable";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@mixin button($width, $height, $bg-color, $border-radius, ) {
+  background-color: $bg-color;
+  width: $width;
+  height: $height;
+  cursor: pointer;
+  border-radius: $border-radius;
+
+  &:hover {
+    background-color: $main-color;
+    color: white;
+  }
+}
+
+@mixin display-flex($flex-direction, $justify-content, $align-items, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+
+  @if $flex-direction !='null' or $align-items !='null' or $justify-content !='null' or $gap !='null' {
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    gap: $gap;
+  }
+}
+
+#header {
+  .main {
+    @include display-flex(null, space-between, null, null);
+    padding: 0.78rem;
+
+    .logo-nav {
+      @include display-flex(null, null, null, 3.4rem);
+
+      .logo {
+        a {
+          font-size: 1.25rem;
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+
+      .nav_list {
+        @include display-flex(null, null, null, 1.5rem);
+
+        .nav_list_item {
+          a {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 1rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .button {
+      font-size: 1rem;
+      @include display-flex(null, center, center, 1rem);
+      padding: 0.5rem;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid $main-color;
+      border-radius: $main-border-radius;
+
+      &:hover {
+        background-color: $main-color;
+        color: white;
+      }
+
+      .wishlist {
+        line-height: 30px;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+    }
+
+  }
+}
+
+#hero {
+  background-color: $dark-grey;
+  @include display-flex(null, center, center, null);
+  color: white;
+  padding: 5*$padding 0*$padding;
+  box-sizing: border-box;
+
+  .banner {
+    padding: 0rem 3rem;
+    margin: 3rem 0rem;
+    line-height: 1.5;
+    font-weight: 400;
+
+    text-align: center;
+
+    &_title {
+      margin-bottom: 0.5rem;
+      font-size: calc(1.475rem + 2.7vw);
+    }
+
+    &_desc {
+      margin-bottom: 1rem;
+      font-size: 1.55rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 400;
+    }
+  }
+}
+
+#shop {
+  padding: 5*$padding 0px;
+
+  .container {
+    margin-top: 5*$margin;
+    padding: 0 3rem;
+
+    .cards {
+      @include display-flex(row, center, center, 2rem);
+      .card {
+        width: calc(85%/4);
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.175);
+        border-radius: 0.375rem;
+        overflow: hidden;
+        border-top-left-radius: calc(0.375rem - 1px);
+        border-top-right-radius: calc(0.375rem - 1px);
+
+        img {
+
+          border-top-left-radius: calc(0.375rem - 1px);
+          border-top-right-radius: calc(0.375rem - 1px);
+        }
+
+        &_content {
+          color: rgb(33, 37, 41);
+          @include display-flex(row, center, center, null);
+          padding: 4*$padding;
+          text-align: center;
+          font-size: 1rem;
+          height: 134px;
+
+          h5 {
+            font-size: 1.25rem;
+            font-weight: bolder;
+            margin-bottom: 8px
+          }
+        }
+
+        &_footer {
+          text-align: center;
+          padding: 0 4*$padding 4*$padding 4*$padding;
+
+          a {
+            font-size: 1rem;
+            color: rgb(33, 37, 41);
+            font-weight: 400;
+            border: 1px solid rgb(33, 37, 41);
+            border-radius: 0.375rem;
+            cursor: pointer;
+            line-height: 1.25rem;
+            padding: 0.375rem 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#footer{
+  padding: 3rem 0rem;
+  background-color: rgb(33, 37, 41);
+  .container{
+    max-width: 720px;
+        p{
+          margin: 0;
+      color: white;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5rem;
+
+    }
+  }
+}
